@@ -4,8 +4,7 @@ if [ "$1" = '' ] || [ "$2" = '' ]; then
 	exit
 fi
 
-RESULT=$(xinput | grep "$2")
-if [ "$RESULT" != '' ]; then
+if [ "$(xinput | grep "$2")" != '' ]; then
 	xinput disable "$1"
 else
 	if [ "$(xinput list "$1" | grep disabled)" != '' ]; then
